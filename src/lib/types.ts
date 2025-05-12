@@ -34,3 +34,21 @@ export interface Brand {
 }
 
 export type SortOption = 'price-low-high' | 'price-high-low' | 'newest' | 'popular';
+
+export interface Order {
+  id: string;
+  userId: string;
+  items: CartItem[];
+  status: 'pending' | 'processing' | 'shipped' | 'delivered';
+  shippingAddress: {
+    firstName: string;
+    lastName: string;
+    address: string;
+    city: string;
+    state: string;
+    postalCode: string;
+  };
+  paymentMethod: string;
+  totalAmount: number;
+  createdAt: Date;
+}
